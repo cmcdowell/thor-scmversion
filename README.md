@@ -117,7 +117,13 @@ If you include #major, #minor or #patch in the subject of commits, and run
 are included since the last tag, and use the appropriate version. This works
 especially well with a CI server, allowing you to never have to directly
 manage versions at all. If no commits are tagged, the build number for the
-current version will be bumped instead.
+current version will be bumped instead, this behaviour can be changed with the
+`--default` command line option. If no commits are tagged the level
+given by the `--default` option will be bumped.
+
+    $ thor version:bump auto --default=patch
+
+will bump the patch level of the version number if no commits are tagged.
 
 NOTE: auto bumping currently only works for Git repos. For Perforce repos,
 auto is the same as build.
