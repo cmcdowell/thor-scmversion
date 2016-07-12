@@ -27,7 +27,14 @@ module ThorSCMVersion
       rescue => e
         raise GitTagDuplicateError.new(self.to_s)
       end
-      ShellUtils.sh "git push --tags || true"
+
+      begin
+        ShellUtils.sh "git push --tags"
+      rescue RuntimeError => e
+        #remove local tag
+        ShellUtils.sh "git tag -d #{self}"
+        raise GitError.new(e.message)
+      end
     end
 
     # Check the commit messages to see what type of bump is required
