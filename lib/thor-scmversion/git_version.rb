@@ -30,7 +30,7 @@ module ThorSCMVersion
 
       begin
         ShellUtils.sh "git push --tags"
-      rescue => e
+      rescue RuntimeError => e
         #remove local tag
         ShellUtils.sh "git tag -d #{self}"
         raise GitError.new(e.message)
