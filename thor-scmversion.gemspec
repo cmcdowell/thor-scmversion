@@ -18,12 +18,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'thor'
   gem.add_dependency 'mixlib-shellout'
 
-  gem.add_development_dependency 'webmock'
-  gem.add_development_dependency 'geminabox'
-  gem.add_development_dependency 'spork'
   gem.add_development_dependency 'simplecov'
-  gem.add_development_dependency 'vcr'
   gem.add_development_dependency 'aruba'
   gem.add_development_dependency 'rspec'
-  gem.add_development_dependency 'debugger'
+  gem.add_development_dependency 'rake'
 end
