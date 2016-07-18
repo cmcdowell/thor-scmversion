@@ -3,14 +3,6 @@ require 'mixlib/shellout'
 module ThorSCMVersion
   class ShellUtils
     class << self
-      def secure_password
-        password = String.new
-
-        while password.length < 20
-          password << ::OpenSSL::Random.random_bytes(1).gsub(/\W/, '')
-        end
-        password
-      end
 
       def sh(cmd, dir = '.', &block)
         out, code = sh_with_excode(cmd, dir, &block)
