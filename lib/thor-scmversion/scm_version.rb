@@ -100,10 +100,14 @@ module ThorSCMVersion
       else
         raise "Invalid release type: #{type}. Valid types are: major, minor, patch, or auto"
       end
-      raise "Version: #{self.to_s} is less than or equal to the existing version of #{self.class.from_path}." if self <= self.class.from_path
       reset_for type unless type == :auto
       self
     end
+
+    def bump_check
+      raise "Version: #{self.to_s} is less than or equal to the existing version of #{self.class.from_path}." if self <= self.class.from_path
+    end
+
 
     # Reset levels lower than the type being reset for
     #
