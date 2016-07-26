@@ -12,7 +12,7 @@ OUT
     context "that fails to push tags to remote git repo" do
       it "raises a GitError" do
         subject { GitVersion.new('1', '2', '3') }
-        allow(ShellUtils).to receive(:sh!).and_raise(RuntimeError)
+        allow(ShellUtils).to receive(:sh).and_raise(RuntimeError)
 
         expect { subject.tag }.to raise_error(GitError)
       end
