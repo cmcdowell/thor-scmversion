@@ -17,5 +17,14 @@ OUT
         expect { subject.tag }.to raise_error(GitError)
       end
     end
+
+    describe "latest_from_path" do
+      it "returns the latest tag" do
+        allow(Open3).to receive(:popen3).and_yield(nil, StringIO.new("0.0.1\n0.0.2"), nil)
+        allow(GitVersion).to receive(:contained_in_current_branch?).and_return(true)
+
+        expect(GitVersion.latest_from_path('.').to_s).to eq('0.0.2')
+      end
+    end
   end
 end
