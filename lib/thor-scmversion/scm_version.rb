@@ -35,7 +35,7 @@ module ThorSCMVersion
       # @return [Array<ScmVersion>]
       def from_path(path = '.')
         retrieve_tags
-        all_from_path(path).first || new(0,0,1)
+        latest_from_path(path) || new(0,0,1)
       end
 
       # Create an ScmVersion object from a tag

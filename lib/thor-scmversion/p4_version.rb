@@ -70,6 +70,10 @@ module ThorSCMVersion
         end
       end
 
+      def latest_from_path(path)
+        all_from_path(path).first
+      end
+
       def depot_path(path)
         path = File.expand_path(path)
         path = path.gsub(File::Separator, File::ALT_SEPARATOR) if ThorSCMVersion.windows?
