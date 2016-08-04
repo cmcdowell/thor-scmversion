@@ -30,6 +30,7 @@ module ThorSCMVersion
         end
         describe 'auto' do
           it "should respect a default level of bump" do
+            allow(ScmVersion).to receive(:from_path).and_return(ScmVersion.new(1, 2, 3))
             expect(subject.bump!(:auto, default: :patch).to_s).to eq('1.2.4')
           end
         end
