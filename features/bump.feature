@@ -27,6 +27,9 @@ Feature: Bump
       | git |            1.0.0 | auto              |                 1.0.1 | --default patch |
       | git |            1.0.0 | auto              |                 1.0.1 | -d patch        |
       | git |            1.0.0 | auto              |         1.0.0+build.2 |                 |
+
+    @p4
+    Examples:
       | p4  |            1.0.0 | patch             |                 1.0.1 |                 |
       | p4  |            1.0.0 | minor             |                 1.1.0 |                 |
       | p4  |            1.0.0 | major             |                 2.0.0 |                 |
