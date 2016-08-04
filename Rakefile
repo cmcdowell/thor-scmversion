@@ -7,7 +7,7 @@ begin
   RSpec::Core::RakeTask.new(:spec)
 
   Cucumber::Rake::Task.new(:features) do |t|
-    t.cucumber_opts = "--format pretty --tags ~wip"
+    t.cucumber_opts = "--format pretty --tags ~wip --tags ~@p4"
   end
 
   task :default => :spec

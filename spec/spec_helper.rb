@@ -9,6 +9,7 @@ end
 
 RSpec.configure do |config|
     config.mock_with :rspec
+    config.filter_run_excluding :p4 => true
 end
 
 require 'thor-scmversion'

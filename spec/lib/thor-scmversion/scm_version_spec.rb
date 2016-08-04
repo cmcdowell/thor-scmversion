@@ -119,7 +119,7 @@ here
     end
   end
 
-  describe P4Version do
+  describe P4Version, :p4 => true do
     it_behaves_like 'scmversion'
 
     it 'should parse labels correctly' do
